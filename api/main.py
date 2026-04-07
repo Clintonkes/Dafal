@@ -13,9 +13,8 @@ from sqlalchemy.orm import Session
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
-from database import engine, Base, get_db, SessionLocal
-import models
-
+from .database import engine, Base, get_db, SessionLocal
+from . import models
 # Create all tables if they don't exist
 Base.metadata.create_all(bind=engine)
 
@@ -330,3 +329,4 @@ if __name__ == "__main__":
     host, port = resolve_server_config()
     print(f"Starting Dafal LLC API on {host}:{port}")
     uvicorn.run("main:app", host=host, port=port, reload=False, app_dir=os.path.dirname(__file__))
+

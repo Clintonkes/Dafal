@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String, DateTime
 from datetime import datetime
-from database import Base
-
+from .database import Base
 class Admin(Base):
     __tablename__ = "admins"
     id = Column(Integer, primary_key=True, index=True)
@@ -45,3 +44,4 @@ class CompanySettings(Base):
     phone = Column(String)
     email = Column(String)
     address = Column(String)
+
